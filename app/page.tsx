@@ -21,7 +21,7 @@ function App() {
       <div className={styles.center}>
         <Image
           className={styles.logo}
-          src="/next.svg"
+          src="/tmpicon.svg"
           alt="Next.js Logo"
           width={180}
           height={37}
@@ -29,7 +29,7 @@ function App() {
         />
         <span>+</span>
         <Image
-          src="/amplify.svg"
+          src="/tmpicon.svg"
           alt="Amplify Logo"
           width={45}
           height={37}
