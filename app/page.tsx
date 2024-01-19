@@ -1,9 +1,16 @@
+
+"use client";
+
+import { withAuthenticator } from "@aws-amplify/ui-react";
+import "@aws-amplify/ui-react/styles.css";
 import Image from 'next/image'
 import styles from './page.module.css'
+import JobList from "@/components/JobList";
 
-export default function Home() {
+function App() {
   return (
     <main className={styles.main}>
+      <JobList />
       <div className={styles.description}>
         <p>
           Get started by editing&nbsp;
@@ -84,3 +91,5 @@ export default function Home() {
     </main>
   )
 }
+
+export default withAuthenticator(App);

@@ -8,11 +8,22 @@ specify that owners, authenticated via your Auth resource can "create",
 authenticated via an API key, can only "read" records.
 =========================================================================*/
 const schema = a.schema({
-  Todo: a
+  Job: a
     .model({
-      content: a.string(),
+      jobTitle: a.string(),
+      postingURL: a.string(),
+      company: a.string(),
+      bookmarkDate: a.date(),
+      appliedDate: a.date(),
+      interviewDate: a.date(),
+      closedDate: a.date(),
+      currentStatus: a.string(),
+      maxStatus: a.string(),
+      site: a.string(),
+      followupURL: a.string(),
+      suggestedSalary: a.integer(),
     })
-    .authorization([a.allow.owner(), a.allow.public().to(['read'])]),
+    .authorization([a.allow.owner(), a.allow.public()]),
 });
 
 export type Schema = ClientSchema<typeof schema>;
