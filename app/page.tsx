@@ -6,37 +6,42 @@ import "@aws-amplify/ui-react/styles.css";
 import Image from 'next/image'
 import styles from './page.module.css'
 import JobList from "@/components/JobList";
+import ReactDOM from 'react-dom/client';
+import { Menu, MenuItem, View } from '@aws-amplify/ui-react';
+import { Tabs } from '@aws-amplify/ui-react';
 
 function App() {
   return (
     <main className={styles.main}>
+    <Tabs 
+      justifyContent="flex-start"
+      defaultValue='Tab 1'
+      items={[
+        { label: 'Tab 1', value: 'Tab 1', content: 'Tab content #1' },
+        { label: 'Tab 2', value: 'Tab 2', content: 'Tab content #2' },
+        { label: 'Disabled tab', value: 'Tab 3', content: 'Tab content #3', isDisabled: true },
+      ]}
+    />
+
+      <Menu menuAlign="start" >
+        <MenuItem onClick={() => alert('Download')}>
+          Download
+        </MenuItem>
+        <MenuItem onClick={() => alert('Create a Copy')}>
+          Create a Copy
+        </MenuItem>
+        <MenuItem onClick={() => alert('Mark as Draft')}>
+          Mark as Draft
+        </MenuItem>
+        <MenuItem isDisabled onClick={() => alert('Delete')}>
+          Delete
+        </MenuItem>
+        <MenuItem onClick={() => alert('Attend a workshop')}>
+          Attend a workshop
+        </MenuItem>
+      </Menu>
+
       <JobList />
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>app/page.tsx</code>
-        </p>
-      </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/tmpicon.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-        <span>+</span>
-        <Image
-          src="/tmpicon.svg"
-          alt="Amplify Logo"
-          width={45}
-          height={37}
-          priority
-        />
-      </div>
-
       <div className={styles.grid}>
         <a
           href="https://docs.amplify.aws/gen2/"
